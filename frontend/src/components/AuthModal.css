@@ -1,0 +1,93 @@
+.auth-switch {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-switch span {
+  opacity: 0.5;
+}
+
+.auth-switch span.active {
+  opacity: 1;
+  border-bottom: 2px solid #000;
+}
+
+.auth-method {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.auth-method button {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.auth-method button.active {
+  background: #000;
+  color: white;
+}
+
+/* ---------- Auth Modal ---------- */
+
+.auth-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.auth-tab {
+  cursor: pointer;
+  padding: 6px 10px;
+  font-weight: 500;
+  opacity: 0.5;
+  border-bottom: 2px solid transparent;
+}
+
+.auth-tab.active {
+  opacity: 1;
+  border-bottom: 2px solid #a855f7;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.auth-btn {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-btn.primary {
+  background: linear-gradient(90deg, #f9a8d4, #a855f7);
+  color: white;
+}
+
+.auth-divider {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.auth-btn.google {
+  background: #fff;
+  border: 1px solid #ddd;
+}
