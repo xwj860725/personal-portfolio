@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -28,7 +28,7 @@ yarn-error.log*
 
 parametre du site(couleur px etc).docx
 site perso video.mov
-=======
+
 # Logs
 logs
 *.log
@@ -168,4 +168,6 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
->>>>>>> 0e3059cb2f6223cca350b717decba1db4bf69705
+0e3059cb2f6223cca350b717decba1db4bf69705
+
+site perso video.mov
