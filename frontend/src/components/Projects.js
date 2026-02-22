@@ -4,7 +4,7 @@ import proj1 from "../assets/img/proj1.png";
 import proj2 from "../assets/img/proj2.png";
 import proj3 from "../assets/img/proj3.png";
 import proj4 from "../assets/img/proj4.png";
-// import colorSharp2 from "../assets/img/color-sharp2.png";
+import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
