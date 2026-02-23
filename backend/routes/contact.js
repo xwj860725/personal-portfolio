@@ -1,52 +1,52 @@
 const express = require("express");
 const router = express.Router();
-const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-// server used to send emails
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+/* ================= MAIL SETUP ================= */
 
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: "********@gmail.com",
-    pass: ""
+    pass: ""   // ⚠ 建议之后改成环境变量
   },
 });
 
 contactEmail.verify((error) => {
   if (error) {
-    console.log(error);
+    console.log("Mail config error:", error);
   } else {
-    console.log("Ready to Send");
+    console.log("Mail server ready");
   }
 });
 
-router.post("/contact", (req, res) => {
+/* ================= ROUTE ================= */
+
+router.post("/", (req, res) => {
   const name = req.body.firstName + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
   const phone = req.body.phone;
+
   const mail = {
     from: name,
     to: "********@gmail.com",
     subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+    html: `
+      <p>Name: ${name}</p>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+      <p>Message: ${message}</p>
+    `,
   };
+
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error);
+      return res.status(500).json({ ok: false });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      return res.json({ ok: true });
     }
   });
 });
+
+module.exports = router;

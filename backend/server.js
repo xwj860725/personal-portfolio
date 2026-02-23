@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { createClient } = require('redis');
 const { Pool } = require('pg');
+const contactRoutes = require('./routes/contact');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_change_me';
 
@@ -35,6 +36,7 @@ const PORT = 3001;
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
+app.use('/contact', contactRoutes);
 
 app.get('/', (req, res) => {
   res.send('Backend is running');
